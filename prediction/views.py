@@ -4,7 +4,8 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 import pickle
-import numpy as np
+# import numpy as np
+import pandas as pd 
 
 model = pickle.load(open("model.pkl", "rb"))
 
@@ -15,7 +16,11 @@ def predict_car(request):
         age = int(request.data.get("age"))
         salary = int(request.data.get("salary"))
 
-        features = np.array([[gender, age, salary]])
+        features = pd.DataFrame(
+        [[gender, age, salary]],
+        columns=["Gender", "Age", "EstimatedSalary"]
+)
+
         prediction = model.predict(features)
 
         result = "Will Purchase Car" if prediction[0] == 1 else "Will Not Purchase Car"
