@@ -1,4 +1,4 @@
-# mart Car Purchase Prediction
+# Smart Car Purchase Prediction
 
 Smart Car Purchase Prediction is a machine learning project that predicts whether a customer will purchase a car or not using details like gender, age, and salary.
 
